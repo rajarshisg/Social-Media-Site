@@ -14,6 +14,7 @@ Visit the Connecti website from this link : [https://www.github.com/octokatherin
 - Following/Unfollowing other users.
 - Updating profile picture.
 - Chatting on a public chat made using socket.io.
+- It is a responsive website.
 
   
 ## Tech Stack
