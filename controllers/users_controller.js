@@ -8,28 +8,34 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports.profile = async function (req, res) {
-    let follow = await Follow.findOne({
-        from_user: req.user._id,
-        to_user: req.params.id
-    });
-    let user = await User.findById(req.params.id).populate({
-        path : 'posts',
-        populate : {
-            path : 'user comments',
+    try{
+        let follow = await Follow.findOne({
+            from_user: req.user._id,
+            to_user: req.params.id
+        });
+        let user = await User.findById(req.params.id).populate({
+            path : 'posts',
             populate : {
-                path : 'user'
+                path : 'user comments',
+                populate : {
+                    path : 'user'
+                }
+            },
+            options : {
+                sort : {'createdAt' : -1}
             }
-        },
-        options : {
-            sort : {'createdAt' : -1}
-        }
-    })
-    return res.render('user_profile', {
-        title: 'Connecti | User Profile',
-        isFollowed: follow,
-        profile_user: user,
-    });
-
+        })
+        return res.render('user_profile', {
+            title: 'Connecti | User Profile',
+            isFollowed: follow,
+            profile_user: user,
+        });
+    
+    }catch(err){
+        console.log('Error occured in home controller!');
+        return;
+    }
+    
 }
 
 module.exports.update = async function (req, res) {
