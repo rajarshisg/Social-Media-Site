@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#main-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+  #main-section #feed-posts {
+    text-align: center;
+    width: 60vw;
+    height: 100%;
+    padding: 1rem;
+    font-family: "Roboto", sans-serif; }
+    #main-section #feed-posts #post-form {
+      margin-bottom: 2rem;
+      width: 95%;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      height: 160px;
+      background-color: white;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; }
+      #main-section #feed-posts #post-form #welcome-user {
+        text-align: start;
+        font-weight: bold;
+        margin-bottom: 1rem; }
+      #main-section #feed-posts #post-form form textarea {
+        resize: none;
+        height: 4rem;
+        width: 55vw;
+        border-radius: 0.3rem;
+        border: 1px solid lightgrey;
+        padding: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        margin-bottom: 0.5rem; }
+      #main-section #feed-posts #post-form form textarea::placeholder {
+        font-family: "Roboto", sans-serif;
+        font-size: 1rem; }
+      #main-section #feed-posts #post-form form textarea:focus {
+        outline: none; }
+      #main-section #feed-posts #post-form form input[type="file"] {
+        margin-left: 34vw;
+        border: 1px solid lightgray;
+        border-radius: 0.5rem;
+        width: 10vw;
+        height: 1.5rem;
+        padding: 0.5rem; }
+      #main-section #feed-posts #post-form form button {
+        margin-left: 48vw;
+        height: 2rem;
+        width: 100px;
+        background-color: #42B72A;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 0.3rem; }
+    #main-section #feed-posts #posts-container li .post-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 100%;
+      margin-left: -2.5rem;
+      padding: 1rem;
+      text-align: start;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      background-color: white; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header {
+        display: flex;
+        justify-content: end;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 56vw; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header .post-user-profile-pic {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          display: block;
+          object-fit: cover;
+          text-align: center; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name {
+          font-size: 1.1rem;
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+          margin-left: .5rem;
+          width: 89%;
+          display: flex;
+          flex-direction: column; }
+          #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name b {
+            font-size: 0.9rem;
+            margin-top: 0.5rem; }
+          #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a {
+            text-decoration: none;
+            transition: 1s; }
+          #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a:hover {
+            text-decoration: underline; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header a {
+          color: black; }
+      #main-section #feed-posts #posts-container li .post-card .post-content {
+        min-height: 70px;
+        font-size: 1.2rem;
+        white-space: pre-line;
+        text-align: left;
+        margin-bottom: 1rem;
+        margin-left: .5rem; }
+      #main-section #feed-posts #posts-container li .post-card .likes-count {
+        color: #4b4b4b;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        padding-top: 0.12rem;
+        height: 1.8rem;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem; }
+        #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like {
+          width: 47%;
+          text-align: center;
+          border-radius: 0.5rem;
+          padding: 0.5rem; }
+          #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like a {
+            color: black;
+            text-decoration: none; }
+        #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like:hover {
+          background-color: #e2e2e2; }
+        #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment {
+          width: 47%;
+          text-align: center;
+          border-radius: 0.5rem;
+          padding: 0.5rem; }
+        #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment:hover {
+          background-color: #e2e2e2; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea {
+        resize: none;
+        height: 1rem;
+        width: 54.5vw;
+        border-radius: 2rem;
+        border: 1px solid lightgrey;
+        padding: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        display: inline; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea::placeholder {
+        font-family: "Roboto", sans-serif;
+        font-size: 0.8rem; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea:focus {
+        outline: none; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form button {
+        margin-left: 48vw;
+        height: 2rem;
+        width: 8vw;
+        font-size: 0.8rem;
+        background-color: #42B72A;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 0.3rem; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments .comments-header {
+        font-size: 0.8rem; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
+        margin-left: -3vw; }
+        #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic img {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          display: inline-block; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
+        background-color: #F0F2F5;
+        border-radius: 1rem;
+        margin-left: 0vw;
+        margin-top: -35px;
+        padding: 1rem;
+        padding-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        width: 20vw; }
+        #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card .comment-user-name {
+          font-size: 0.9rem;
+          font-weight: bolder;
+          margin-bottom: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between; }
+          #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card .comment-user-name a {
+            color: black;
+            text-decoration: none; }
+          #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card .comment-user-name a:hover {
+            text-decoration: underline; }
+        #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card .comment-content {
+          margin-left: 0rem;
+          font-size: 1rem; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-size: 0.8rem;
+        width: 8vw;
+        font-weight: bold;
+        margin-left: 0vw;
+        margin-bottom: 1rem; }
+        #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like a {
+          color: black;
+          text-decoration: none; }
+        #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like .seperator {
+          margin-top: 0.25rem;
+          font-size: 0.2rem; }
+  #main-section #user-friends {
+    border-left: 1px solid lightgray;
+    padding-left: 1rem;
+    font-family: "Roboto", sans-serif; }
+    #main-section #user-friends a {
+      color: black;
+      text-decoration: none; }
+    #main-section #user-friends a:hover {
+      text-decoration: underline; }
+  #main-section #all-users {
+    border-right: 1px solid lightgray;
+    padding-right: 1rem;
+    font-family: "Roboto", sans-serif; }
+    #main-section #all-users a {
+      color: black;
+      text-decoration: none; }
+    #main-section #all-users a:hover {
+      text-decoration: black;
+      text-decoration: underline; }
+
+@media only screen and (max-width: 1100px) {
+  #main-section #feed-posts {
+    width: 60vw;
+    border-right: none; }
+    #main-section #feed-posts #posts-container li .post-card .post-card-header {
+      width: auto; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name {
+        margin-right: -2rem; }
+  #all-users {
+    height: 50vh;
+    overflow-y: scroll;
+    border: none; }
+  #user-friends {
+    border: none;
+    overflow-y: hidden;
+    padding-right: 1rem;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    left: 4vw;
+    top: 65%; } }
+
+@media only screen and (max-width: 950px) {
+  #main-section #feed-posts {
+    width: 60vw; }
+    #main-section #feed-posts #post-form form textarea {
+      width: 95%; }
+    #main-section #feed-posts #post-form form button {
+      margin-left: 75%; }
+    #main-section #feed-posts #posts-container li .post-card {
+      width: 104%; }
+      #main-section #feed-posts #posts-container li .post-card .post-content {
+        font-size: 1.1rem; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like {
+        width: 45%; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment {
+        width: 45%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea {
+        width: 95%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form button {
+        height: 2rem;
+        width: 80px;
+        margin-left: 80%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
+        margin-left: -5vw; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
+        width: 50%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like {
+        width: 12vw; } }
+
+@media only screen and (max-width: 750px) {
+  #all-users {
+    display: none; }
+  #user-friends {
+    display: none; }
+  #main-section #feed-posts {
+    width: 90vw; }
+    #main-section #feed-posts #post-form form textarea {
+      width: 95%; }
+    #main-section #feed-posts #post-form form button {
+      margin-left: 75%; }
+    #main-section #feed-posts #posts-container li .post-card {
+      width: 104%; }
+      #main-section #feed-posts #posts-container li .post-card .post-content {
+        font-size: 1.1rem; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like {
+        width: 45%; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment {
+        width: 45%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea {
+        width: 95%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form button {
+        height: 2rem;
+        width: 80px;
+        margin-left: 80%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
+        margin-left: -8vw; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
+        width: 50%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like {
+        width: 18vw; } }

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="<%= 'css/chat_box.css' %>">
+<% if(locals.user) {%>
+    <div id="join-chat-box-header"><span>Join Public Chat</span><div id="open-tab-button"><i class="fas fa-external-link-alt"></i></div></div>
+    <div id="chat-box">
+        <div id="chat-box-header"><span>Public Chat</span><div id="close-tab-button"><i class="fas fa-times"></i></div></div>
+        <div class="global-message">This is a public chat. Please be respectful towards other users and don't share your personal information like email or phone number.</div>
+        <ul id="chat-message-list">
+            <li class="other-message">
+            </li>
+            <li class="self-message">
+            </li>
+        </ul>
+        <div id="chat-message-input-container">
+            <input id="chat-message-input" placeholder="Type your message here...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+    <script>
+        $('#join-chat-box-header').click(function(){
+            $('#join-chat-box-header').css('display', 'none');
+            $('#chat-box').css('display', 'block');
+        })
+        $('#chat-box-header').click(function(e){
+            $('#chat-box').css('display', 'none');
+            $('#join-chat-box-header').css('display', 'flex');
+        });
+    </script>
+<% } %>

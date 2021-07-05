@@ -1,0 +1,29 @@
+<div id="header">
+    <a href="/">
+        <div id="website-name">
+            <div><i class="fas fa-users"></i></div>&nbsp;
+            <div>Connecti</div>
+        </div>
+    </a>
+    <div id="links">
+        <% if(locals.user) { %>
+            <span><a href="/users/profile/<%= user.id %>"><%= user.name %></a></span>&emsp;
+            <span><a href="/users/sign-out">Sign Out</a></span>
+        <% }else{ %>
+            <span><a href="/users/sign-in">Sign In</a></span>
+            <span><a href="/users/sign-up">Sign Up</a></span>
+        <% } %>
+    </div>
+    <div class="dropdown">
+        <span><i class="fas fa-bars"></i></span>
+        <div class="dropdown-content">
+            <% if(locals.user) { %>
+                <div><a href="/users/profile/<%= user.id %>"><%= user.name %></a></div>&nbsp;&nbsp;
+                <div><a href="/users/sign-out">Sign Out</a></div>
+            <% }else{ %>
+                <div><a href="/users/sign-in">Sign In</a></div>&nbsp;&nbsp;
+                <div><a href="/users/sign-up">Sign Up</a></div>
+            <% } %>
+        </div>
+      </div>
+</div>

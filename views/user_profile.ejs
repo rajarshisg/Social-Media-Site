@@ -1,0 +1,136 @@
+<link rel="stylesheet" type="text/css" href="/css/user_profile.css">
+
+<% if(user.id == profile_user.id) { %>
+    <div id="header-container">
+        <div id="cover-pic"></div>
+            <div id="profile-details">
+                <% if(user.avatar) { %>
+                    <div id="profile-pic"><img src="<%= user.avatar %>" alt="<%= user.name %>"></div>
+                <% }else { %>
+                    <div id="profile-pic"><img src="/images/avatar-1577909_1280.png" alt="<%= user.name %>"></div>
+                <% } %>
+                <div id="user-details">
+                    <div id="user-name"><%= user.name %></div>
+                    <% if(user.about) {%>
+                        <div id="user-about"><%= user.about %></div>
+                    <% } %>
+                </div>
+                </div>
+            <div id="edit-profile-button"><i class="fas fa-edit"></i>&nbsp;&nbsp;Edit Profile</div>
+    </div>
+    <!--If user matches show the form-->
+    <div id="edit-profile">
+        <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
+            <div id="edit-profile-div-1">
+                <lable for="name">Name</lable>
+                <input type="text" id="name" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                <lable for="name">E-mail</lable>
+                <input type="email" id="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+            </div>
+            <div id="edit-profile-div-2">
+                <lable for="about">About</lable>
+                <input type="text" id="about" name="about" placeholder="Write something about yourself">
+            </div>
+            <div id="edit-profile-div-3">
+                <lable for="name">Profile Picture</lable>
+                <input type="file" id="avatar" name="avatar" placeholder="Profile Picture">
+            </div>
+            
+            <div id="buttons">
+                <button type="submit" value="Update">Submit</button>
+                <div id="cancel-button">Cancel</div>
+            </div>
+        </form>
+    </div>
+<% }else{ %>
+    <!--Else show profile info only--> 
+    <div id="header-container">
+        <div id="cover-pic"></div>
+            <div id="profile-details">
+                <% if(profile_user.avatar) { %>
+                    <div id="profile-pic"><img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>"></div>
+                <% }else { %>
+                    <div id="profile-pic"><img src="/images/default-avatar.jpg" alt="<%= profile_user.name %>"></div>
+                <% } %>
+                <div id="user-details">
+                    <div id="user-name"><%= profile_user.name %></div>
+                    <% if(profile_user.about) {%>
+                        <div id="user-about"><%= profile_user.about %></div>
+                    <% } %>
+                </div>
+            </div>
+            <% if(isFollowed) { %>
+                <div id="follow-user-button"><a href="/follow/toggle/?id=<%= profile_user.id %>"><i class="fas fa-times"></i>&nbsp;&nbsp;Unfollow</a></div>
+            <% }else{ %>
+                <div id="follow-user-button"><a href="/follow/toggle/?id=<%= profile_user.id %>"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Follow</a></div>
+            <% } %>
+        </div>
+<% } %>
+
+<% for(i of profile_user.posts) { %>
+    <li id="post-<%= i._id %>" type="none">
+    <div class="post-card">
+        <div class="post-card-header">
+            <% if(i.user.avatar) { %>
+                <img src="<%= i.user.avatar %>" alt="<%= i.user.name %>" class="post-user-profile-pic">&nbsp;&nbsp;
+            <% }else{ %>
+                <img src="/images/default-avatar.jpg" alt="<%= i.user.name %>" class="post-user-profile-pic">
+            <% } %>
+            <div class="user-name">
+                <a href="/users/profile/<%= i.user._id %>"><%= i.user.name %></a>
+            </div>
+        </div>
+
+        <div class="post-content">
+            <%= i.content %>
+        </div>
+        <div class="likes-count"><b><%= i.likes.length %> Likes</b></div>
+        <div class="like-comment-bar">
+            <div class="like"><b><i class="far fa-thumbs-up"></i></i>&nbsp;&nbsp;Like</b></div>
+            <div class="comment" id="comment-<%= i._id %>"><i class="far fa-comment-alt"></i>&nbsp;&nbsp;<b>Comment</b></div>
+        </div>
+        <div class="comments-container">
+            <div class="posted-comments" id="posted-comments-<%= i._id %>">
+
+                <ul type="none" id="post-comments-<%= i._id %>">
+                    <% for(j of i.comments) { %>
+                        <li id="comment-<%= j._id %>">
+                            <div class="comment-user-profile-pic">
+                                <img src="<%= j.user.avatar %>">
+                            </div>
+                            <div class="comment-card">
+                                <div class="comment-user-name">
+                                    <div>
+                                    <a href="/users/profile/<%=j.user._id%>"><%=j.user.name %></a>
+                                </div>
+                                </div>
+                                
+                                <div class="comment-content">
+                                    <%= j.content %>
+                                </div>
+                            </div>
+                            <div class="comment-like">
+                                <div class="like-button">Like</div>
+                                <div class="seperator"><i class="fas fa-circle"></i></div>
+                                <div class="like-count"><%= j.likes.length %> Likes</div>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<% if(user.id == profile_user.id) { %>
+<script>
+    let editButton = document.getElementById('edit-profile-button');
+    editButton.addEventListener('click', function(){
+        document.getElementById('edit-profile').style.display = 'block';
+    });
+    let cancelButton = document.getElementById('cancel-button');
+    cancelButton.addEventListener('click', function(){
+        document.getElementById('edit-profile').style.display = 'none';
+    });
+</script>
+<% } %>

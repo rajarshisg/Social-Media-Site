@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="/css/user_sign_in.css">
+<div id="container-div">
+    <div id="message">
+       <div id="codeial"><h1><i class="fas fa-users"></i>&nbsp;Connecti</h1></div>
+       <h2>A new way of staying connected with your friends<br/> and family!</h2>
+    </div>
+
+    <div id="sign-in-form">
+        <form action="/users/create-session" method="POST">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <br/><br/>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <br/><br/>
+            <button type="submit">Sign In</button>
+        </form>
+        <h3>OR</h3>
+        <div id="sign-up"><a href="/users/sign-up">Create a new Account</a></div>
+        <h3>OR SIGN IN WITH</h3>
+        <div id="social-login">
+            <a href="/users/auth/google">
+                <div class="social-auth-bar"> <i class="fa fa-google"></i>&nbsp;&nbsp;
+                    Sign In with Google</div>
+            </a>
+        </div><br/>
+        <a href="/users/forgot_password">Forgot Password?</a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<li id="comment-<%= j._id %>">
+    <div class="comment-user-profile-pic">
+        <img src="<%= j.user.avatar %>">
+    </div>
+    <div class="comment-card">
+        <div class="comment-user-name">
+            <div>
+            <a href="/users/profile/<%=j.user._id%>"><%=j.user.name %></a>
+        </div>
+                <% if(locals.user && locals.user.id == j.user._id) { %>
+                <a href="/comments/destroy/<%= j.id %>" class="delete-comment-button"><i class="fas fa-times"></i></a>
+                <% } %>
+        </div>
+        
+        <div class="comment-content">
+            <%= j.content %>
+        </div>
+    </div>
+    <div class="comment-like">
+        <% if(locals.user) {%>
+            <div class="like-button"><a href="/likes/toggle/?id=<%= j.id %>&type=Comment" class=".toggle-likes-button">Like</a></div>
+        <% }else{ %>
+            <div class="like-button">Like</div>
+        <% } %>
+        <div class="seperator"><i class="fas fa-circle"></i></div>
+        <div class="like-count"><%= j.likes.length %> Likes</div>
+    </div>
+</li>

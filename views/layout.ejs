@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/layout.css">
+        <link rel="stylesheet" type="text/css" href="/css/_header.css">
+        <link rel="stylesheet" type="text/css" href="/css/_footer.css">
+        <!--Including Font Awesome icons-->
+        <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
+        <!--Noty js for notifications-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <!--Adding JQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--Making the website responsive-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <%- style %>
+    </head>
+
+    <body>
+        <%- include('_header') %>
+
+        <main id="variable-body">
+            <%- body %>
+        </main>
+        
+        <%- script %>
+        <script>
+            <% if(flash.success && flash.success.length > 0) { %>
+                new Noty({
+                    theme : 'bootstrap-v3',
+                    text : '<%= flash.success %>',
+                    type : 'success',
+                    layout : 'topRight',
+                    timeout : 1500
+                }).show()
+            <% } %>
+            <% if(flash.error && flash.error.length > 0) { %>
+                new Noty({
+                    theme : 'bootstrap-v3',
+                    text : '<%= flash.error %>',
+                    type : 'error',
+                    layout : 'topRight',
+                    timeout : 1500
+                }).show()
+            <% } %>
+        </script>
+    </body>
+</html>

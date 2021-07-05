@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  height: 2em;
+  width: 96.9%;
+  font-family: "Roboto", sans-serif; }
+  #footer #copyright {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    font-weight: bolder; }
+  #footer #links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10vw; }
+    #footer #links span {
+      margin-top: 0.5rem; }
+      #footer #links span a {
+        color: white;
+        font-family: "Roboto", sans-serif; }

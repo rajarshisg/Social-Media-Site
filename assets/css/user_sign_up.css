@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#container-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 80.7vh;
+  margin-bottom: 0.4rem; }
+  #container-div #message {
+    margin-right: 8vw;
+    margin-top: 6rem; }
+    #container-div #message #codeial {
+      color: #4267B2;
+      font-weight: bolder; }
+    #container-div #message h1 {
+      font-size: 3rem; }
+  #container-div #sign-up-form {
+    height: 490px;
+    width: 400px;
+    margin-top: 2vh;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius: 0.5rem;
+    text-align: center; }
+    #container-div #sign-up-form form {
+      margin-top: 1rem; }
+      #container-div #sign-up-form form input {
+        width: 320px;
+        height: 1.5rem;
+        border: none;
+        padding: 0.5rem;
+        border: 1px solid lightgray;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem; }
+      #container-div #sign-up-form form input::placeholder {
+        font-size: 1rem;
+        font-family: "Roboto", sans-serif; }
+      #container-div #sign-up-form form input:focus {
+        outline: none;
+        font-size: 1rem;
+        font-family: "Roboto", sans-serif; }
+      #container-div #sign-up-form form button[type="submit"] {
+        font-family: "Roboto", sans-serif;
+        font-size: 1rem;
+        height: 2.5rem;
+        width: 170px;
+        background-color: #4267B2;
+        border: none;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: bold;
+        margin-bottom: -0.5rem; }
+  #container-div #social-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    #container-div #social-login a {
+      text-decoration: none; }
+      #container-div #social-login a .social-auth-bar {
+        background-color: red;
+        border-radius: 0.5rem;
+        padding-top: 0.5rem;
+        width: 230px;
+        height: 2rem;
+        margin-left: 91px;
+        color: white; }
+
+@media only screen and (max-width: 1000px) {
+  #container-div #message {
+    margin-right: 2vw;
+    width: 400px; }
+  #container-div #sign-up-form {
+    width: 400px; }
+    #container-div #sign-up-form form input {
+      width: 300px; } }
+
+@media only screen and (max-width: 900px) {
+  #container-div #message {
+    font-size: 1rem;
+    width: 300px; }
+    #container-div #message #codeial {
+      font-weight: bold; }
+    #container-div #message h1 {
+      font-size: 2rem; }
+  #container-div #sign-up-form {
+    width: 400px; }
+    #container-div #sign-up-form form input {
+      width: 320px; } }
+
+@media only screen and (max-width: 700px) {
+  #container-div #message {
+    font-size: 1rem;
+    width: 250px;
+    font-size: 0.9rem; }
+    #container-div #message #codeial {
+      font-weight: bold; }
+    #container-div #message h1 {
+      font-size: 2rem; }
+  #container-div #sign-up-form {
+    width: 320px; }
+    #container-div #sign-up-form form input {
+      width: 230px;
+      height: 1.8rem;
+      margin-bottom: 0.2rem; }
+    #container-div #sign-up-form form input::placeholder {
+      font-size: 1rem; }
+    #container-div #sign-up-form form input:focus {
+      font-size: 1rem; }
+    #container-div #sign-up-form form button[type="submit"] {
+      width: 130px;
+      height: 2.5rem;
+      font-size: 1.1rem; }
+  #container-div #social-login {
+    margin-left: -40px; } }
+
+@media only screen and (max-width: 600px) {
+  #container-div {
+    font-size: 0.9rem; }
+    #container-div #message {
+      display: none; }
+    #container-div #sign-up-form {
+      width: 400px;
+      margin-top: 4rem;
+      height: 440px;
+      margin-top: 2rem; }
+      #container-div #sign-up-form form input {
+        width: 330px;
+        height: 1.3rem;
+        font-size: 0.9rem; }
+      #container-div #sign-up-form form input::placeholder {
+        font-size: 0.9rem; }
+      #container-div #sign-up-form form input:focus {
+        font-size: 0.9rem; }
+      #container-div #sign-up-form form button[type="submit"] {
+        width: 100px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        height: 2.5rem; }
+    #container-div #social-login {
+      margin-left: 0px; } }

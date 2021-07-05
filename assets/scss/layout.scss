@@ -1,0 +1,67 @@
+//Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+//Font variables
+$roboto: 'Roboto', sans-serif;
+body{
+    margin: 0px;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: $roboto;
+    background-color: #F0F2F5;
+    #variable-body{
+        min-height: 100%;
+        height: 100%;
+    }
+}
+#forgot-password-div{
+    height: 175px;
+    width: 400px;
+    margin-top: 2vw;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin-left: 35vw;
+    margin-top: 100px;
+    form{
+        margin-top: 1rem;
+        padding: 1rem;
+        input{
+            width: 320px;
+            height: 2rem;
+            border: none;
+            padding: 0.5rem;
+            border : 1px solid lightgray;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        input::placeholder{
+            font-size: 1.3rem;
+            font-family: $roboto;
+        }
+        input:focus{
+            outline: none;
+            font-size: 1.3rem;
+            font-family: $roboto;
+        }
+        button[type="submit"]{
+            font-family: $roboto;
+            font-size: 1.2rem;
+            height: 2.5rem;
+            width: 120px;
+            background-color: #42B72A;
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
+
+@media only screen and(max-width : 650px){
+    #forgot-password-div{
+        margin-left: 8vw;
+    }
+}
