@@ -1,6 +1,6 @@
 # Connecti : A Social Media Website
 
-Connecti is a full Social Media Website created using Express.JS. It is a one stop destination to connect with your frends and family. 
+Connecti is a full stack Social Media Website created using Express.JS. It is a one stop destination to connect with your frends and family. 
 
 
 ## View the project from it's official website
