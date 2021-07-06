@@ -9,11 +9,11 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 ## Screenshots
 
-<img width="600" alt="Capture" src="https://user-images.githubusercontent.com/55212405/124575472-0f074880-de69-11eb-803a-89aedc21ef25.PNG">
+<img width="300" alt="Capture" src="https://user-images.githubusercontent.com/55212405/124575472-0f074880-de69-11eb-803a-89aedc21ef25.PNG"> <img width="300" alt="Capture1" src="https://user-images.githubusercontent.com/55212405/124575740-47a72200-de69-11eb-9359-66cf668345d2.PNG">
 
-<img width="600" alt="Capture1" src="https://user-images.githubusercontent.com/55212405/124575740-47a72200-de69-11eb-9359-66cf668345d2.PNG">
 
-<img width="600" alt="Capture2" src="https://user-images.githubusercontent.com/55212405/124575803-542b7a80-de69-11eb-9b60-b7f6a6828adc.PNG">
+
+<img width="300" alt="Capture2" src="https://user-images.githubusercontent.com/55212405/124575803-542b7a80-de69-11eb-9b60-b7f6a6828adc.PNG">
 
 
   
