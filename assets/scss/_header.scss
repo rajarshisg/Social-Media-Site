@@ -41,15 +41,12 @@ $roboto: 'Roboto', sans-serif;
             }
         }
     }
-}
 
 .dropdown {
     position: relative;
     display: none;
     font-size: 1.5rem;
     padding-right: 1rem;
-  }
-  
   .dropdown-content {
     display: none;
     position: absolute;
@@ -65,6 +62,7 @@ $roboto: 'Roboto', sans-serif;
         padding : 0.5rem;
         height : 20px;
         transition: all 0.4s ease-in-out;
+        color: black;
         a{
             text-decoration: underline;
             color: black;
@@ -75,16 +73,19 @@ $roboto: 'Roboto', sans-serif;
         }
     }
   }
-  
-  .dropdown:hover .dropdown-content {
+}
+  .dropdown:hover .dropdown-content{
     display: block;
   }
   .dropdown-content{
       div:hover{
         background-color: #f1f1f1;
+        a{
+            color: black;
+        }
       }
   }
-
+}
 @media only screen and (max-width : 700px){
     #header{
         height: 2rem;
