@@ -1,6 +1,10 @@
 <li id="comment-<%= j._id %>">
     <div class="comment-user-profile-pic">
-        <img src="<%= j.user.avatar %>">
+        <% if(j.user.avatar) {%>
+            <img src="<%= j.user.avatar %>">
+        <% }else{ %>
+            <img src="/images/default-avatar.jpg">
+        <% } %>
     </div>
     <div class="comment-card">
         <div class="comment-user-name">
