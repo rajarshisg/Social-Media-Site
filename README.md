@@ -3,9 +3,9 @@
 Connecti is a full stack Social Media Website created using Express.JS. It is the one stop destination to connect with your frends and family. 
 
 
-## View the project from it's official website
+## Visit the official website
 
-Visit the Connecti website from this link : [https://www.github.com/octokatherine](https://www.github.com/octokatherine)
+Visit the Connecti website from this link : [http://connecti.net.in/e](http://connecti.net.in/)
 ## Features
 
 - Sign In/Sign Up using Local or Google Authentication.
