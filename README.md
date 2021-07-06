@@ -9,6 +9,12 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 ## Screenshots
 
+<img width="600" alt="Capture" src="https://user-images.githubusercontent.com/55212405/124575472-0f074880-de69-11eb-803a-89aedc21ef25.PNG">
+
+<img width="600" alt="Capture1" src="https://user-images.githubusercontent.com/55212405/124575740-47a72200-de69-11eb-9359-66cf668345d2.PNG">
+
+<img width="600" alt="Capture2" src="https://user-images.githubusercontent.com/55212405/124575803-542b7a80-de69-11eb-9b60-b7f6a6828adc.PNG">
+
 
   
 
@@ -31,8 +37,7 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 ## Documentation
 
-The project follows the MVC strcuture wherein our files are divided into<img width="945" alt="Capture" src="https://user-images.githubusercontent.com/55212405/124575472-0f074880-de69-11eb-803a-89aedc21ef25.PNG">
- Models, Views and Controllers folders.
+The project follows the MVC strcuture wherein our files are divided into Models, Views and Controllers folders.
 
     1. index.js - This is the entry point to the app where our server is created which listens to requests on port 8000.
     
