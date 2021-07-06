@@ -9,9 +9,6 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1Qt5qw4kiGM4fYW3mdBRcLxdHgHrY09z9/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/1kznuLPnHKpCIldux1sHUSMXNrB2L6GYi/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/1SA1Rbu71wK6QQkPwe9Nkbx_ukl5kI95M/view?usp=sharing)
 
   
 
