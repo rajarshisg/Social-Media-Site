@@ -33,7 +33,7 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 The project follows the MVC strcuture wherein our files are divided in Models, Views and Folders.
 
-   1. Models - It Consists of all the database schemas needed for the website.
+    1. Models - It Consists of all the database schemas needed for the website.
                The main schemas used in the project are : 
                   a. User -  Defihes a user on the website.
                   b. Post - Defines the post made by a user.
@@ -44,7 +44,7 @@ The project follows the MVC strcuture wherein our files are divided in Models, V
     
     2. Views - It consists of the front-end appearence of the website. In this project EJS is used as the view template.
     
-    3. Controllers - They define all the actions that need to be performed when a specific route is requested.
+    3. Controllers - They define all the actions that need to be performed when a specific route is request. There are controlloers for home, user (which has a profile, sign in, sign up, forgot password), post (which has create, destroy), comment (which has creare destroy), like (which has create destroy).
     
 
   
