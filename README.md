@@ -34,7 +34,8 @@ Visit the Connecti website from this link : [http://connecti.net.in](http://conn
 
 ## Documentation
 
-The project follows the MVC strcuture wherein our files are divided in Models, Views and Controllers folders.
+The project follows the MVC strcuture wherein our files are divided into<img width="945" alt="Capture" src="https://user-images.githubusercontent.com/55212405/124575472-0f074880-de69-11eb-803a-89aedc21ef25.PNG">
+ Models, Views and Controllers folders.
 
     1. index.js - This is the entry point to the app where our server is created which listens to requests on port 8000.
     
