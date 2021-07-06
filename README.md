@@ -3,7 +3,7 @@
 Connecti is a full stack Social Media Website created using Express.JS. It is the one stop destination to connect with your frends and family. 
 
 
-## Visit the official website
+## Visit the official website!
 
 Visit the Connecti website from this link : [http://connecti.net.in](http://connecti.net.in/)
 ## Features
