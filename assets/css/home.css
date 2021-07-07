@@ -271,7 +271,7 @@
       #main-section #feed-posts #posts-container li .post-card .comments-container form button {
         height: 2rem;
         width: 80px;
-        margin-left: 80%; }
+        margin-left: 45%; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
         margin-left: -5vw; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
@@ -310,3 +310,40 @@
         width: 50%; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like {
         width: 18vw; } }
+
+@media only screen and (max-width: 420px) {
+  #main-section #feed-posts {
+    width: 90vw; }
+    #main-section #feed-posts #post-form form textarea {
+      width: 95%; }
+    #main-section #feed-posts #post-form form button {
+      margin-left: 75%; }
+    #main-section #feed-posts #posts-container li .post-card {
+      width: 104%; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header {
+        width: 100%; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header .post-user-profile-pic {
+          height: 40px;
+          width: 40px; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name {
+          font-size: 1rem; }
+        #main-section #feed-posts #posts-container li .post-card .post-card-header a {
+          color: black; }
+      #main-section #feed-posts #posts-container li .post-card .post-content {
+        font-size: 1.1rem; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like {
+        width: 45%; }
+      #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment {
+        width: 40%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form textarea {
+        width: 95%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form button {
+        height: 2rem;
+        width: 80px;
+        margin-left: 70%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
+        margin-left: -10vw; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
+        width: 50%; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-like {
+        width: 25vw; } }

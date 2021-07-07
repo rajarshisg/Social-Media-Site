@@ -391,7 +391,7 @@ $roboto: 'Roboto', sans-serif;
                                 button{
                                     height: 2rem;
                                     width: 80px;
-                                    margin-left: 80%;
+                                    margin-left: 45%;
                                 }
                             }
                             .posted-comments{
@@ -492,4 +492,85 @@ $roboto: 'Roboto', sans-serif;
         }
 
         }
+}
+
+@media only screen and (max-width : 420px){
+    #main-section{
+        #feed-posts{
+            width: 90vw;
+            #post-form{
+                form{
+                    textarea{
+                        width: 95%;
+                    }
+                    button{
+                        margin-left: 75%;
+                    }
+                }
+            }
+
+            #posts-container{
+                li{
+                    .post-card{
+                        .post-card-header{
+                            .post-user-profile-pic{
+                                height: 40px;
+                                width: 40px;
+                            }
+                            .user-name{
+                                font-size: 1rem;
+                            }
+                            a{
+                                color : black
+                            }
+                    
+                        }
+                        width: 104%;
+                        .post-content{
+                            font-size: 1.1rem;
+                        }
+    
+                        .like-comment-bar{
+                            .like{
+                                width: 45%;
+                            }
+                            .comment{
+                                width: 40%;
+                            }
+                        }
+
+                        .comments-container{
+                            form{
+                                textarea{
+                                    width: 95%;
+                                }
+                                button{
+                                    height: 2rem;
+                                    width: 80px;
+                                    margin-left: 70%;
+                                }
+                            }
+                            .posted-comments{
+                                ul{
+                                    li{
+                                        .comment-user-profile-pic{
+                                            margin-left: -10vw;
+                                        }
+                                        .comment-card{
+                                            width: 50%;
+                                        }
+                                        .comment-like{
+                                            width: 25vw;
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 }
