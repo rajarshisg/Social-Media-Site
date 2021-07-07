@@ -314,21 +314,21 @@
 @media only screen and (max-width: 420px) {
   #main-section #feed-posts {
     width: 90vw; }
+    #main-section #feed-posts #post-form form button {
+      margin-left: 48%; }
     #main-section #feed-posts #post-form form textarea {
       width: 95%; }
     #main-section #feed-posts #post-form form button {
       margin-left: 75%; }
     #main-section #feed-posts #posts-container li .post-card {
       width: 104%; }
-      #main-section #feed-posts #posts-container li .post-card .post-card-header {
-        width: 100%; }
-        #main-section #feed-posts #posts-container li .post-card .post-card-header .post-user-profile-pic {
-          height: 40px;
-          width: 40px; }
-        #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name {
-          font-size: 1rem; }
-        #main-section #feed-posts #posts-container li .post-card .post-card-header a {
-          color: black; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header .post-user-profile-pic {
+        height: 40px;
+        width: 40px; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name {
+        font-size: 1rem; }
+      #main-section #feed-posts #posts-container li .post-card .post-card-header a {
+        color: black; }
       #main-section #feed-posts #posts-container li .post-card .post-content {
         font-size: 1.1rem; }
       #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like {
