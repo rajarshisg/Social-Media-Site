@@ -296,32 +296,34 @@ li .post-card {
     margin-left: 15vw; } }
 
 @media only screen and (max-width: 680px) {
-  #header-container #cover-pic {
-    margin-left: 0px;
-    border-radius: 0px;
-    width: 600px; }
-  #header-container #profile-details {
-    display: block;
-    flex-direction: column;
-    width: 100%; }
-    #header-container #profile-details #profile-pic img {
-      height: 160px;
-      width: 160px; }
-    #header-container #profile-details #user-details {
-      text-align: center;
-      margin-left: -180px;
-      width: auto;
-      margin-top: -50px; }
-      #header-container #profile-details #user-details #user-name {
-        font-size: 1.5rem; }
-      #header-container #profile-details #user-details #user-about {
-        font-size: 1rem; }
-  #header-container #edit-profile-button {
-    margin-top: 80px;
-    margin-left: 350px; }
-  #header-container #follow-user-button {
-    margin-top: 80px;
-    margin-left: 350px; }
+  #header-container {
+    margin-bottom: 8vh; }
+    #header-container #cover-pic {
+      margin-left: 0px;
+      border-radius: 0px;
+      width: 600px; }
+    #header-container #profile-details {
+      display: block;
+      flex-direction: column;
+      width: 100%; }
+      #header-container #profile-details #profile-pic img {
+        height: 160px;
+        width: 160px; }
+      #header-container #profile-details #user-details {
+        text-align: center;
+        margin-left: -180px;
+        width: auto;
+        margin-top: -50px; }
+        #header-container #profile-details #user-details #user-name {
+          font-size: 1.5rem; }
+        #header-container #profile-details #user-details #user-about {
+          font-size: 1rem; }
+    #header-container #edit-profile-button {
+      margin-top: 80px;
+      margin-left: 350px; }
+    #header-container #follow-user-button {
+      margin-top: 80px;
+      margin-left: 350px; }
   #edit-profile {
     left: 20px;
     width: 400px;
@@ -349,3 +351,38 @@ li .post-card {
       width: 40vw; }
     li .post-card .comments-container .posted-comments ul li .comment-like {
       width: 18vw; } }
+
+@media only screen and (max-width: 420px) {
+  #header-container #edit-profile-button {
+    margin-left: 250px; }
+  #header-container #follow-user-button {
+    margin-left: 250px; }
+  li .post-card {
+    margin-left: -1rem;
+    width: 40vw;
+    width: 104%; }
+    li .post-card .post-card-header .post-user-profile-pic {
+      height: 40px;
+      width: 40px; }
+    li .post-card .post-card-header .user-name {
+      font-size: 1rem; }
+    li .post-card .post-card-header a {
+      color: black; }
+    li .post-card .post-content {
+      font-size: 1.1rem; }
+    li .post-card .like-comment-bar .like {
+      width: 45%; }
+    li .post-card .like-comment-bar .comment {
+      width: 40%; }
+    li .post-card .comments-container form textarea {
+      width: 95%; }
+    li .post-card .comments-container form button {
+      height: 2rem;
+      width: 80px;
+      margin-left: 70%; }
+    li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
+      margin-left: -10vw; }
+    li .post-card .comments-container .posted-comments ul li .comment-card {
+      width: 50%; }
+    li .post-card .comments-container .posted-comments ul li .comment-like {
+      width: 25vw; } }

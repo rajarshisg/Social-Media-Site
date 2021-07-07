@@ -9,7 +9,10 @@
   padding-left: 1rem;
   padding-right: 2rem;
   height: 2.6em;
-  width: 96.9%; }
+  width: 96.9%;
+  /*.dropdown:hover .dropdown-content{
+    display: block;
+  }*/ }
   #header a {
     color: white;
     text-decoration: none; }
@@ -58,8 +61,6 @@
           font-weight: bold;
           padding: 0px;
           margin-bottom: 1rem; }
-  #header .dropdown:hover .dropdown-content {
-    display: block; }
   #header .dropdown-content div:hover {
     background-color: #f1f1f1; }
     #header .dropdown-content div:hover a {
