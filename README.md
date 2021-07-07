@@ -23,6 +23,8 @@ The website is hosted on AWS and the domain name has been purchased from GoDaddy
 ## Features
 
 - Sign In/Sign Up using Passport.JS Local or Google Authentication.
+- There is a forgot password option, wherin the users will be sent a unique link to their mail Ids through
+  which they can update the password.
 - Posting and Commenting.
 - Liking posts and comments.
 - Following/Unfollowing other users.
