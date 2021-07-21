@@ -21,7 +21,7 @@ passport.use(new googleStrategy({
                 //if not found create the user and set is as req.user
                 User.create({
                     name : profile.displayName,
-                    email : profile.emails[0].value,
+                    email : profile.emails[0].value, //multiple emails may be associated with a google account
                     password : crypto.randomBytes(20).toString('hex')
                 }, function(err, user){
                     if(err){console.log('Error in creating user google strategy-passport', err); return;}

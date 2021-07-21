@@ -1,12 +1,14 @@
+<!--This defines the basic layout of the website-->
+<!--express-ejs-layouts package is used-->
 <!DOCTYPE html>
 <html>
     <head>
         <title>
             <%= title %>
         </title>
+        <!--Stylesheets-->
         <link rel="stylesheet" type="text/css" href="/css/layout.css">
         <link rel="stylesheet" type="text/css" href="/css/_header.css">
-        <link rel="stylesheet" type="text/css" href="/css/_footer.css">
         <!--Including Font Awesome icons-->
         <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
         <!--Noty js for notifications-->
@@ -16,18 +18,26 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!--Making the website responsive-->
         <meta name="viewport" content="width=device-width, initial-scale = 0.86, maximum-scale=3.0, minimum-scale=0.86">
+        <!--Style tags are added here-->
         <%- style %>
     </head>
 
     <body>
+
+        <!--Including the _header.ejs file-->
         <%- include('_header') %>
 
+        <!--The variable body-->
         <main id="variable-body">
             <%- body %>
         </main>
         
+        <!--Script tags are added here-->
         <%- script %>
+
+
         <script>
+            /*Noty Notifications*/
             <% if(flash.success && flash.success.length > 0) { %>
                 new Noty({
                     theme : 'bootstrap-v3',

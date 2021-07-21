@@ -36,14 +36,7 @@ module.exports.toggleLike = async function(req, res){
             likeable.likes.push(newLike._id);
             likeable.save();
         }
-        if(req.xhr){
-            return res.status(200).json({
-                data : {
-                    deleted : deleted
-                },
-                message : 'Post deleted successfully'
-            });
-        }
+
         return res.redirect('back');
     }catch(err){
         console.log('Error  occured while liking',err);

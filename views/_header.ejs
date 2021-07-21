@@ -1,3 +1,4 @@
+<!--This defines the Header of the website-->
 <div id="header">
     <a href="/">
         <div id="website-name">
@@ -7,13 +8,16 @@
     </a>
     <div id="links">
         <% if(locals.user) { %>
+            <!--If user is signed in-->
             <span><a href="/users/profile/<%= user.id %>"><%= user.name %></a></span>&emsp;
             <span><a href="/users/sign-out">Sign Out</a></span>
         <% }else{ %>
+            <!--When viewing anonymously-->
             <span><a href="/users/sign-in">Sign In</a></span>
             <span><a href="/users/sign-up">Sign Up</a></span>
         <% } %>
     </div>
+    <!--Dropdown for small screens-->
     <div class="dropdown">
         <span><i class="fas fa-bars"></i></span>
         <div class="dropdown-content">
