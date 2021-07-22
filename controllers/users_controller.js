@@ -3,6 +3,7 @@ const User = require("../models/user");
 const Follow = require('../models/follow');
 const PasswordToken = require('../models/reset_password_token');
 const resetLinkMailer = require('../mailers/forgot_password_mailer');
+const newUserMailer = require('../mailers/new_user_mailer');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
@@ -111,6 +112,7 @@ module.exports.createUser = function (req, res) {
             User.create(req.body, function (err, user) {
                 if (err) { console.log('Error in creating user!'); return; }
                 req.flash('success', 'Account created!');
+                newUserMailer.newUser(user);
                 return res.render('user_sign_in', {
                     title: 'Connecti | Sign In'
                 });

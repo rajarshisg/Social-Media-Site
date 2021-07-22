@@ -57,12 +57,14 @@ app.use(session({
         },
     )
 }));
-
 app.use(passport.initialize()); //app uses passport
 app.use(passport.session()); //for maintaining passport session
 app.use(passport.setAuthenticatedUser);
+
+//Flash notifications
 app.use(flash());
 app.use(customMWare.setFlash);
+
 //using express router to route files
 app.use('/', require('./routes/index'));
 
