@@ -187,7 +187,7 @@ module.exports.resetPasswordPage = async function (req, res) {
 }
 
 module.exports.resetPassword = function (req, res) {
-    PasswordToken.findOneAnd({ accessToken: req.params.access_token }, function (err, passwordToken) {
+    PasswordToken.findOneAndUpdate({ accessToken: req.params.access_token }, function (err, passwordToken) {
         if (passwordToken.isValid == true) {
             if (req.body.password != req.body.confirm_password) {
                 req.flash('error', 'Passwords don\'t match!');
