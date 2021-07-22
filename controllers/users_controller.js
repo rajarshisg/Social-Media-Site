@@ -198,6 +198,8 @@ module.exports.resetPassword = function (req, res) {
                 req.flash('success', 'Password updated successfully!');
                 return res.redirect('/users/sign-in');
             });
+        }else{
+            return res.redirect('back');
         }
     });
 }
