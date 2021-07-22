@@ -157,6 +157,7 @@ module.exports.createResetPasswordToken = async function (req, res) {
             });
             passwordToken = await passwordToken.populate('user', 'email').execPopulate();
             resetLinkMailer.newResetLink(passwordToken);
+            req.flash('success', 'Reset Link Sent! Check your mail (spam/others)!')
             return res.redirect('back');
         } else {
             req.flash('error', 'Email does not exist!');
@@ -169,9 +170,8 @@ module.exports.createResetPasswordToken = async function (req, res) {
     }
 }
 
-module.exports.resetPasswordPage = function (req, res) {
-    return res.render('user_reset_password');
-}
+
+
 
 module.exports.resetPasswordPage = async function (req, res) {
     try {
@@ -195,6 +195,8 @@ module.exports.resetPassword = function (req, res) {
             }
             User.findByIdAndUpdate(passwordToken.user, { password: req.body.password }, function (err, user) {
                 if (err) { console.log('Error while resetting the password'); return; }
+                req.flash('success', 'Password updated successfully!');
+                passwordToken.isValid = false;
                 return res.redirect('/users/sign-in');
             });
         }
