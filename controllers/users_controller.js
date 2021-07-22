@@ -196,7 +196,7 @@ module.exports.resetPassword = function (req, res) {
             User.findByIdAndUpdate(passwordToken.user, { password: req.body.password }, function (err, user) {
                 if (err) { console.log('Error while resetting the password'); return; }
                 req.flash('success', 'Password updated successfully!');
-                passwordToken.isValid = false;
+                PasswordToken.findByIdAndUpdate(passwordToken._id, {isValid : false});
                 return res.redirect('/users/sign-in');
             });
         }
