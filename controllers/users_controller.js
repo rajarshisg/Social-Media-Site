@@ -187,7 +187,7 @@ module.exports.resetPasswordPage = async function (req, res) {
 }
 
 module.exports.resetPassword = function (req, res) {
-    PasswordToken.findOne({ accessToken: req.params.access_token }, function (err, passwordToken) {
+    PasswordToken.findOneAnd({ accessToken: req.params.access_token }, function (err, passwordToken) {
         if (passwordToken.isValid == true) {
             if (req.body.password != req.body.confirm_password) {
                 req.flash('error', 'Passwords don\'t match!');
@@ -196,7 +196,9 @@ module.exports.resetPassword = function (req, res) {
             User.findByIdAndUpdate(passwordToken.user, { password: req.body.password }, function (err, user) {
                 if (err) { console.log('Error while resetting the password'); return; }
                 req.flash('success', 'Password updated successfully!');
-                PasswordToken.findByIdAndUpdate(passwordToken._id, {isValid : false});
+                PasswordToken.findByIdAndUpdate(passwordToken._id, {isValid : false}, function(err, password){
+                    if(err){console.log('Error in chaging access token validity'); return;}
+                });
                 return res.redirect('/users/sign-in');
             });
         }
