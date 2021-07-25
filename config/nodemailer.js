@@ -8,6 +8,7 @@ let transporter = nodemailer.createTransport({
     host : 'smtp.gmail.com',
     port : 587,
     secure : false,
+    //sender mail id and pass
     auth : {
         user : 'connecti.spprt',
         pass : 'connecti@2021'
