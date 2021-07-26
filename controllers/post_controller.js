@@ -16,7 +16,7 @@ module.exports.create = async function (req, res) {
         user.save();
         if(req.xhr){
             //to send the users name we need to populate it
-            post = await post.populate('user', 'name').execPopulate();
+            post = await post.populate('user', 'name avatar').execPopulate();
             return res.status(200).json({
                 data : {
                     post : post
