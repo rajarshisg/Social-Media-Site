@@ -43,13 +43,12 @@ app.set('views', './views'); //location of the views
 //Used to generate the session cookie
 //mongo store is used to store the session cookie in the db, npm install connect-mongo
 app.use(session({
-    name : 'codeial', //cookie name
-    //TODO Change the secret before deployment
-    secret : 'blahsomething', //encryption key
+    name : 'connecti', //cookie name
+    secret : '2s5v8y/B?D(G+KbPeShVmYq3t6w9z$C&', //encryption key
     saveUninitialized: false, //when user is not logged in no data is saved in cookie
     resave: false, //we do not want to rewrite session cookie if it is not changed
     cookie: {
-        maxAge : (1000*60*60) //age of the cookie in miliseconds --> 1 hour
+        maxAge : (1000*60*60*3) //age of the cookie in miliseconds --> 3 hours
     },
     store : MongoStore.create(
         {
