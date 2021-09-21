@@ -44,14 +44,18 @@
         height: 1.5rem;
         padding: 0.5rem; }
       #main-section #feed-posts #post-form form button {
-        margin-left: 48vw;
+        margin-left: 50vw;
         height: 2rem;
-        width: 100px;
+        width: 80px;
         background-color: #42B72A;
         color: white;
-        font-weight: bold;
         border: none;
-        border-radius: 0.3rem; }
+        border-radius: 0.3rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color .2s ease-in-out; }
+      #main-section #feed-posts #post-form form button:hover {
+        background-color: #42aa2d; }
     #main-section #feed-posts #posts-container li .post-card {
       display: flex;
       flex-direction: column;
@@ -90,7 +94,7 @@
             margin-top: 0.5rem; }
           #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a {
             text-decoration: none;
-            transition: 1s; }
+            transition: text-decoration .2s ease-in-out; }
           #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a:hover {
             text-decoration: underline; }
         #main-section #feed-posts #posts-container li .post-card .post-card-header a {
@@ -121,7 +125,9 @@
           width: 47%;
           text-align: center;
           border-radius: 0.5rem;
-          padding: 0.5rem; }
+          padding: 0.5rem;
+          transition: background-color .2s ease-in-out;
+          cursor: pointer; }
           #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like a {
             color: black;
             text-decoration: none; }
@@ -131,7 +137,9 @@
           width: 47%;
           text-align: center;
           border-radius: 0.5rem;
-          padding: 0.5rem; }
+          padding: 0.5rem;
+          transition: background-color .2s ease-in-out;
+          cursor: pointer; }
         #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment:hover {
           background-color: #e2e2e2; }
       #main-section #feed-posts #posts-container li .post-card .comments-container form textarea {
@@ -159,7 +167,11 @@
         color: white;
         font-weight: bold;
         border: none;
-        border-radius: 0.3rem; }
+        border-radius: 0.3rem;
+        cursor: pointer;
+        transition: background-color .2s ease-in-out; }
+      #main-section #feed-posts #posts-container li .post-card .comments-container form button:hover {
+        background-color: #42aa2d; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments .comments-header {
         font-size: 0.8rem; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-user-profile-pic {
@@ -214,6 +226,35 @@
     border-left: 1px solid lightgray;
     padding-left: 1rem;
     font-family: "Roboto", sans-serif; }
+    #main-section #user-friends #user-friends-header {
+      font-weight: bold;
+      font-size: 1rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      height: 3rem;
+      line-height: 3rem;
+      width: 160%;
+      margin-left: -.9rem;
+      background-color: #ffa200;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+      color: #1A2238; }
+    #main-section #user-friends #user-friends-header:hover {
+      background-color: #f19900; }
+    #main-section #user-friends .user-friends-list {
+      padding: .5rem;
+      border-bottom: .5px solid lightgray;
+      height: 2rem;
+      text-align: start;
+      line-height: 2rem;
+      cursor: pointer;
+      margin-left: -.5rem;
+      transition: background-color .2s ease-in-out;
+      width: 160%;
+      margin-left: -.9rem; }
+    #main-section #user-friends .user-friends-list:hover {
+      background-color: lightgray; }
     #main-section #user-friends a {
       color: black;
       text-decoration: none; }
@@ -221,8 +262,35 @@
       text-decoration: underline; }
   #main-section #all-users {
     border-right: 1px solid lightgray;
-    padding-right: 1rem;
-    font-family: "Roboto", sans-serif; }
+    font-family: "Roboto", sans-serif;
+    margin-left: -3rem; }
+    #main-section #all-users #all-users-header {
+      font-weight: bold;
+      font-size: 1rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      height: 3rem;
+      line-height: 3rem;
+      width: 100%;
+      margin-left: -.9rem;
+      background-color: #ffa200;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+      color: #1A2238; }
+    #main-section #all-users #all-users-header:hover {
+      background-color: #f19900; }
+    #main-section #all-users .user-list {
+      padding: .5rem;
+      border-bottom: .5px solid lightgray;
+      height: 2rem;
+      text-align: start;
+      line-height: 2rem;
+      cursor: pointer;
+      margin-left: -.5rem;
+      transition: background-color .2s ease-in-out; }
+    #main-section #all-users .user-list:hover {
+      background-color: lightgray; }
     #main-section #all-users a {
       color: black;
       text-decoration: none; }

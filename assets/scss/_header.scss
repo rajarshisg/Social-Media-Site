@@ -8,13 +8,14 @@ $roboto: 'Roboto', sans-serif;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    background-color: 	#4267B2;
+    background-color: #1A2238;
     color: white;
     padding: 0.5rem;
     padding-left: 1rem;
     padding-right: 2rem;
     height: 2.6em;
     width: 96.9%;
+    position: fixed;
     a{
         color : white;
         text-decoration: none;
@@ -33,6 +34,10 @@ $roboto: 'Roboto', sans-serif;
         flex-direction: row;
         justify-content: space-between;
         min-width: 120px;
+        #notification-bell {
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
         span{
             margin-top : 0.5rem;
             a{
@@ -74,9 +79,7 @@ $roboto: 'Roboto', sans-serif;
     }
   }
 }
-  /*.dropdown:hover .dropdown-content{
-    display: block;
-  }*/
+
   .dropdown-content{
       div:hover{
         background-color: #f1f1f1;
@@ -85,6 +88,48 @@ $roboto: 'Roboto', sans-serif;
         }
       }
   }
+}
+
+#notification-dropdown {
+    height: 350px;
+    width: 300px;
+    position: fixed;
+    top: 2.6em;
+    right: 17vw;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    color: rgb(255, 255, 255);
+    display: none;
+    #notification-dropdown-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: black;
+        padding: 1rem;
+        background-color: #1A2238;
+        color: white;
+        cursor: pointer;
+    }
+    .notifications {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        overflow-y: auto;
+        .notification {
+            border-bottom: .5px solid #9DAAF2;
+            height: 2rem;
+            line-height: 2rem;
+            color: black;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color .2s ease-in-out;
+            background-color: #e6eaff;
+        }
+    }
+
+    .notification:hover {
+        background-color: #dbe2ff;
+    }
 }
 @media only screen and (max-width : 700px){
     #header{

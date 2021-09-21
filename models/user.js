@@ -28,19 +28,48 @@ const userSchema = mongoose.Schema({
         type : String
     },
 
-    followed_people : [
-        {
-            type : mongoose.Schema.Types.ObjectId, //refers to the user schema
-            ref : 'Follow'
-        }
-    ],
-    
     posts : [
         {
             type : mongoose.Schema.Types.ObjectId, //refers to the post schema
             ref : 'Post'
         }
+    ],
+    
+    friends: [
+        {
+            type: mongoose.Schema.Types.ObjectId, //refers to the user schema
+            ref: 'User'
+        }
+    ],
+
+    sentRequests: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+
+    recievedRequests: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+
+    chatRooms: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            },
+
+            roomId: {
+                type: String,
+                required: true
+            }
+        }
     ]
+    
 }, {
     timestapms : true
 });

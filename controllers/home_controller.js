@@ -22,20 +22,15 @@ module.exports.home = async function(req, res){
             curr_user = await User.findById(req.user._id);
 
             curr_user = await curr_user.populate({
-                path : 'followed_people',
-                populate : {
-                    path : 'from_user',
-                    populate : {
-                        path : 'user'
-                    }
-                },
-                populate : {
-                    path : 'to_user',
-                    populate : {
-                        path : 'user'
-                    }
+                path : 'friends',
+            })
+            .populate({
+                path: 'chatRooms',
+                populate: {
+                    path: 'user'
                 }
-            }).execPopulate();
+            })
+            .execPopulate();
         }
 
         return res.render('home', {

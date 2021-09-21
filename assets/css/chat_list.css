@@ -1,0 +1,79 @@
+#open-chat-list-header {
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  height: 3%;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.8rem;
+  padding-top: 0.5rem;
+  width: 300px;
+  color: white;
+  background-color: #1A2238;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer; }
+
+#chat-list {
+  position: fixed;
+  height: 350px;
+  width: 300px;
+  bottom: 0px;
+  right: 10px;
+  background-color: white;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: none; }
+  #chat-list #chat-list-header {
+    height: 4%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 0.8rem;
+    padding-top: 0.5rem;
+    width: 96.8%;
+    color: white;
+    background-color: #1A2238;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    cursor: pointer; }
+  #chat-list .friends-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 310px;
+    overflow-y: scroll;
+    margin-right: -1rem;
+    margin-top: -.5rem; }
+    #chat-list .friends-list .friend-message-box {
+      border-bottom: .5px solid lightgray;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: white;
+      transition: background-color .2s ease-in-out; }
+      #chat-list .friends-list .friend-message-box .friend-message-box-begin {
+        display: flex;
+        flex-direction: row; }
+        #chat-list .friends-list .friend-message-box .friend-message-box-begin .friend-image {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%; }
+          #chat-list .friends-list .friend-message-box .friend-message-box-begin .friend-image img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%; }
+        #chat-list .friends-list .friend-message-box .friend-message-box-begin .friend-name {
+          line-height: 2.3rem;
+          font-weight: bold; }
+      #chat-list .friends-list .friend-message-box .open-icon {
+        font-size: 1.3rem;
+        line-height: 40px;
+        color: #1A2238; }
+    #chat-list .friends-list .friend-message-box:hover {
+      background-color: lightgray; }

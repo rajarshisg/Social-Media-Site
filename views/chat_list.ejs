@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="<%= 'css/chat_list.css' %>">
+<% if(locals.user) {%>
+    <div id="open-chat-list-header"><span>Messages</span><div id="open-tab-button"><i class="fas fa-external-link-alt"></i></div></div>
+    <div id="chat-list">
+        <div id="chat-list-header"><span>Messages</span><div id="close-tab-button"><i class="fas fa-times"></i></div></div>
+        <div class="friends-list">
+            <% for(friend of current_user.chatRooms) { %>
+                <div class="friend-message-box" id="<%= friend.roomId %>">
+                    <div class="friend-message-box-begin">
+                    <% if(friend.user.avatar) { %>
+                        <div class="friend-image"><img src="<%= friend.user.avatar %>" alt="<%= friend.user.name %>"></div>
+                    <% }else { %>
+                        <div class="friend-image"><img src="/images/default-avatar.jpg" alt="<%= friend.user.name %>"></div>
+                    <% } %>&emsp;
+                    <div class="friend-name"><%= friend.user.name %></div></div>
+                    <div class="open-icon"><i class="fas fa-external-link-square-alt"></i></div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <script>
+        $('#open-chat-list-header').click(function(){
+            $('#open-chat-list-header').css('display', 'none');
+            $('#chat-list').css('display', 'block');
+        })
+        $('.chat-box-header').click(function() {
+            $('.chat-message-list').empty();
+            $('.chat-box').fadeOut();
+            $('#chat-list').fadeIn();
+        })
+        $('.friend-message-box').click(function() {
+            let roomId = $(this).attr('id');
+            $('.chat-box').attr('id', roomId);
+            $('.chat-message-list').empty();
+            let chat = new ChatEngine($('.chat-box').attr('id'), '<%= locals.user.name %>', '<%= locals.user.email %>', roomId);
+            chat.connectionHandler(roomId);
+            $('.chat-box').fadeIn();
+            $('#chat-list').fadeOut();
+            $('.chat-box-header span').text($(this).text());
+        });
+
+        $('#chat-list-header').click(function(e){
+            $('#chat-list').css('display', 'none');
+            $('#open-chat-list-header').css('display', 'flex');
+            chat = null;
+        });
+    </script>
+<% } %>

@@ -8,5 +8,4 @@ router.get('/', homeController.home);
 router.use('/posts', require('./posts'));
 router.use('/comments', require('./comments'));
 router.use('/likes', require('./likes'));
-router.use('/follow',require('./follow'));
 module.exports = router;

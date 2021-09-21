@@ -1,31 +1,15 @@
-#join-chat-box-header{
-    position: fixed;
-    bottom : 0px;
-    right : 10px;
-    height: 3%;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    padding : 0.8rem;
-    padding-top: 0.5rem;
-    width: 300px;
-    color : white;
-    background-color: #1877F2;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#chat-box{
+.chat-box{
     position: fixed;
     height: 350px;
     width: 300px;
-    bottom : 10px;
+    bottom : 0px;
     right : 10px;
     background-color: #E4E6EB;
     padding-right: 1rem;
     border-radius: 0.5rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: none;
-    #chat-box-header{
+    .chat-box-header{
         height: 4%;
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
@@ -33,11 +17,12 @@
         padding-top: 0.5rem;
         width: 96.8%;
         color : white;
-        background-color: #1877F2;
+        background-color: #1A2238;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 0.5rem;
+        cursor: pointer;
     }
     .global-message{
         background-color: #FFF5C4;
@@ -51,7 +36,7 @@
         text-align: center;
 
     }
-    #chat-message-list{
+    .chat-message-list{
         list-style: none;
         padding : 10px;
         height: 45%;
@@ -88,13 +73,13 @@
             }
         }
     }
-    #chat-message-input-container{
+    .chat-message-input-container{
         height: 24%;
         width: 100%;
         display: flex;
         flex-direction: row;
         background-color: #E4E6EB;
-        #chat-message-input{
+        .chat-message-input{
             height: 2.5rem;
             width: 70%;
             border-radius : 1.5rem;
@@ -102,15 +87,15 @@
             margin-left : 0.5rem;
             padding: 0rem;
         }
-        #chat-message-input::placeholder{
+        .chat-message-input::placeholder{
             padding-left: 0.5rem;
         }
-        #chat-message-input:focus{
+        .chat-message-input:focus{
             outline: none;
             padding-left: 0.5rem;
             
         }
-        #send-message{
+        .send-message{
             height: 50%;
             width: 30%;
             font-size: 1.2rem;
@@ -120,7 +105,7 @@
             border-radius: 1.5rem;
             margin-left: 1rem;
         }
-        #send-message:hover{
+        .send-message:hover{
             background-color: #30a318;
         }
     }

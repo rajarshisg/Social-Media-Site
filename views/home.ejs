@@ -1,9 +1,9 @@
 <link rel="stylesheet" type="text/css" href="/css/home.css">
 <div id="main-section">
 <section id="all-users">
-        <h4>People on Connecti</h4>
+        <div id="all-users-header">People on Connecti</div>
         <% for(u of all_users) {%>
-            <p><a href="/users/profile/<%= u.id %>"><%= u.name %></a></p>
+            <div class = "user-list"><a href="/users/profile/<%= u._id %>"><%= u.name %></a></div>
         <% } %>
 </section>
 <section id="feed-posts">
@@ -30,12 +30,13 @@
 </section>
 <% if(locals.user) {%>
     <section id="user-friends">
-        <h4>People you follow</h4>
-        <% for(let u of current_user.followed_people) {%>
-            <p><a href="/users/profile/<%= u.to_user._id %>"><%= u.to_user.name %></a></p>
+        <div id="user-friends-header">Your Friends</div>
+        <% for(let u of current_user.friends) {%>
+            <div class = "user-friends-list"><a href="/users/profile/<%= u._id %>"><%= u.name %></a></div>
         <% } %>
     </section>
 <% } %>
+<%- include('chat_list') -%>
 <%- include('chat_box'); -%>
 </div>
 <script src="js/toggle_likes.js"></script>
@@ -48,10 +49,11 @@
         new ToggleLike($(self));
     });
 </script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>-->
 <script src="<%= 'js/chat_engine.js' %>"></script>
 <% if(locals.user) { %>
-<script>
+<!--<script>
     new ChatEngine('chat-box', '<%= locals.user.name %>', '<%= locals.user.email %>');
 </script>
-<% } %>
+<% } %>-->

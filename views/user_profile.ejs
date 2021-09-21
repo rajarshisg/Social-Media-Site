@@ -59,10 +59,15 @@
                     <% } %>
                 </div>
             </div>
-            <% if(isFollowed) { %>
-                <div id="follow-user-button"><a href="/follow/toggle/?id=<%= profile_user.id %>"><i class="fas fa-times"></i>&nbsp;&nbsp;Unfollow</a></div>
-            <% }else{ %>
-                <div id="follow-user-button"><a href="/follow/toggle/?id=<%= profile_user.id %>"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Follow</a></div>
+            <% if(isFriend) { %>
+                <div id="follow-user-button" style="background-color: rgb(224, 34, 0);"><a href="/users/remove-friend/<%= profile_user.id %>">Unfriend</a></div>
+            <% }else if(acceptOrRejectRequest){ %>
+                <div id="follow-user-button"><a href="/users/accept-friend-request/<%= profile_user.id %>"><i class="fas fa-check-circle"></i></a></div>
+                <div id="follow-user-button" style="background-color: rgb(224, 34, 0);"><a href="/users/reject-friend-request/<%= profile_user.id %>"><i class="fas fa-times-circle"></i></a></div>
+            <% }else if(awaitingResponse){ %>
+                <div id="follow-user-button" style="background-color: rgb(250, 212, 0);"><a href="">Request Sent</a></div>
+            <%} else { %>
+                <div id="follow-user-button"><a href="/users/send-friend-request/<%= profile_user.id %>">Add Friend</a></div>
             <% } %>
         </div>
 <% } %>

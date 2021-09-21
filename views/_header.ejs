@@ -8,7 +8,16 @@
     </a>
     <div id="links">
         <% if(locals.user) { %>
+            <div id="notification-dropdown">
+                <div id="notification-dropdown-header"><div>Notifications</div><div><i class="fas fa-times"></i></div></div>
+                <div class="notifications">
+                    <% for(user of locals.user.recievedRequests) { %>
+                        <div class="notification"><a href="/users/profile/<%= user %>" style="color: black; text-decoration: underline;"></style>Someone</a> sent you a friend request!</div>
+                    <% } %>
+                </div>
+            </div>
             <!--If user is signed in-->
+            <span id="notification-bell"><i class="fas fa-bell"></i></span>&emsp;&emsp;
             <span><a href="/users/profile/<%= user.id %>"><%= user.name %></a></span>&emsp;
             <span><a href="/users/sign-out">Sign Out</a></span>
         <% }else{ %>
@@ -31,9 +40,16 @@
         </div>
     </div>
 </div>
-
 <script>
     $('.dropdown').click(function(e){
         $('.dropdown-content').css('display', 'block');
     });
+    $('#notification-bell').click(function() {
+        $('#notification-dropdown').fadeIn();
+    });
+    $('body').click(function(e) {
+        if(e.target.classList[1] != 'fa-bell') {
+            $('#notification-dropdown').fadeOut();
+        }
+    })
 </script>

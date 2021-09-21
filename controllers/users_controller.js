@@ -1,19 +1,15 @@
 const express = require("express");
 const User = require("../models/user");
-const Follow = require('../models/follow');
 const PasswordToken = require('../models/reset_password_token');
 const resetLinkMailer = require('../mailers/forgot_password_mailer');
 const newUserMailer = require('../mailers/new_user_mailer');
+const Message = require('../models/message');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
 module.exports.profile = async function (req, res) {
     try{
-        let follow = await Follow.findOne({
-            from_user: req.user._id,
-            to_user: req.params.id
-        });
         let user = await User.findById(req.params.id).populate({
             path : 'posts',
             populate : {
@@ -25,15 +21,25 @@ module.exports.profile = async function (req, res) {
             options : {
                 sort : {'createdAt' : -1}
             }
-        })
+        });
+
+        let currUser = await User.findById(req.user._id);
+
+        let isFriend = (user.friends.indexOf(currUser._id) == -1)?false:true;
+        let sentRequest = (user.sentRequests.indexOf(currUser._id) == -1)?false:true;
+        let recievedRequest = (user.recievedRequests.indexOf(currUser._id) == -1)?false:true;
+
         return res.render('user_profile', {
             title: 'Connecti | User Profile',
-            isFollowed: follow,
             profile_user: user,
+            isFriend: isFriend,
+            acceptOrRejectRequest: sentRequest,
+            awaitingResponse: recievedRequest,
+            isFollowed: true
         });
     
     }catch(err){
-        console.log('Error occured in home controller!');
+        console.log('Error occured in profile controller!');
         return;
     }
     
@@ -202,3 +208,135 @@ module.exports.resetPassword = function (req, res) {
     });
 }
 
+module.exports.sendFriendRequest = async function(req, res) {
+    try {
+        
+        let toUser = await User.findById(req.params.id);
+        let fromUser = await User.findById(req.user._id);
+
+        let indexOne = toUser.recievedRequests.indexOf(fromUser._id);
+        let indexTwo = fromUser.sentRequests.indexOf(toUser._id);
+        let indexThree = toUser.friends.indexOf(fromUser._id);
+
+        if((indexOne != -1 && indexTwo != -1) || indexThree != -1) {
+            return res.redirect('back');
+        }
+
+
+        toUser.recievedRequests.push(fromUser);
+        fromUser.sentRequests.push(toUser);
+        
+        toUser.save();
+        fromUser.save();
+
+        console.log(toUser);
+        console.log(fromUser);
+        return res.redirect('back');
+    }catch {
+        console.log('Error in sendFriendRequest controller!');
+    }
+}
+
+module.exports.acceptFriendRequest = async function(req, res) {
+    try {
+        let acceptingUser = await User.findById(req.user._id);
+        let sendingUser = await User.findById(req.params.id);
+
+        let indexOne = acceptingUser.recievedRequests.indexOf(sendingUser._id);
+        let indexTwo = sendingUser.sentRequests.indexOf(acceptingUser._id);
+        let indexThree = sendingUser.friends.indexOf(acceptingUser._id);
+
+        if(indexOne == -1 || indexTwo == -1 || indexThree != -1) {
+            return res.redirect('back');
+        }
+
+        acceptingUser.friends.push(sendingUser);
+        sendingUser.friends.push(acceptingUser);
+        await Message.create({
+            roomId: `${acceptingUser.email}${sendingUser.email}`,
+            messages: []
+        });
+        acceptingUser.chatRooms.push({
+            user: sendingUser._id,
+            roomId: `${acceptingUser.email}${sendingUser.email}`
+        });
+        sendingUser.chatRooms.push({
+            user: acceptingUser._id,
+            roomId: `${acceptingUser.email}${sendingUser.email}`
+        });
+
+        acceptingUser.recievedRequests.splice(indexOne, 1);
+        sendingUser.sentRequests.splice(indexTwo, 1);
+
+        acceptingUser.save();
+        sendingUser.save();
+
+        return res.redirect('back');
+    }catch {
+        console.log('Error in acceptFriendRequest controller!');
+    }
+}
+
+module.exports.rejectFriendRequest = async function(req, res) {
+    try {
+        let acceptingUser = await User.findById(req.user._id);
+        let sendingUser = await User.findById(req.params.id);
+
+        let indexOne = acceptingUser.recievedRequests.indexOf(sendingUser._id);
+        let indexTwo = sendingUser.sentRequests.indexOf(acceptingUser._id);
+        let indexThree = sendingUser.friends.indexOf(acceptingUser._id);
+
+        if(indexOne == -1 || indexTwo == -1 || indexThree != -1) {
+            return res.redirect('back');
+        }
+
+        acceptingUser.recievedRequests.splice(indexOne, 1);
+        sendingUser.sentRequests.splice(indexTwo, 1);
+
+        acceptingUser.save();
+        sendingUser.save();
+
+        return res.redirect('back');
+    }catch {
+        console.log('Error in acceptFriendRequest controller!');
+    }
+}
+
+
+
+
+module.exports.unfriend = async function(req, res) {
+    let userOne = await User.findById(req.user._id);
+    let userTwo = await User.findById(req.params.id);
+
+    let indexOne = userOne.friends.indexOf(userTwo._id);
+    let indexTwo = userTwo.friends.indexOf(userOne._id);
+
+    if(indexOne == -1 || indexTwo == -1) {
+        return res.redirect('back');
+    }
+
+    userOne.friends.splice(indexOne, 1);
+    userTwo.friends.splice(indexTwo, 1);
+    let newArrayOne = [];
+    let newArrayTwo = [];
+    for(let room of userOne.chatRooms) {
+        if(room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
+            newArrayOne.push(room);
+        }
+    }
+    for(let room of userTwo.chatRooms) {
+        if(room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
+            newArrayTwo.push(room);
+        }
+    }
+    userOne.chatRooms = newArrayOne;
+    userTwo.chatRooms = newArrayTwo;
+    let message = await Message.findOneAndDelete({ roomId: userOne.email + userTwo.email });
+    if(!message) {
+        message = await Message.findOneAndDelete({ roomId: userTwo.email + userOne.email });
+    }
+    userOne.save();
+    userTwo.save();
+    return res.redirect('back');
+}

@@ -3,16 +3,14 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: #4267B2;
+  background-color: #1A2238;
   color: white;
   padding: 0.5rem;
   padding-left: 1rem;
   padding-right: 2rem;
   height: 2.6em;
   width: 96.9%;
-  /*.dropdown:hover .dropdown-content{
-    display: block;
-  }*/ }
+  position: fixed; }
   #header a {
     color: white;
     text-decoration: none; }
@@ -28,6 +26,9 @@
     flex-direction: row;
     justify-content: space-between;
     min-width: 120px; }
+    #header #links #notification-bell {
+      font-size: 1.3rem;
+      cursor: pointer; }
     #header #links span {
       margin-top: 0.5rem; }
       #header #links span a {
@@ -65,6 +66,42 @@
     background-color: #f1f1f1; }
     #header .dropdown-content div:hover a {
       color: black; }
+
+#notification-dropdown {
+  height: 350px;
+  width: 300px;
+  position: fixed;
+  top: 2.6em;
+  right: 17vw;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  color: white;
+  display: none; }
+  #notification-dropdown #notification-dropdown-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+    padding: 1rem;
+    background-color: #1A2238;
+    color: white;
+    cursor: pointer; }
+  #notification-dropdown .notifications {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow-y: auto; }
+    #notification-dropdown .notifications .notification {
+      border-bottom: .5px solid #9DAAF2;
+      height: 2rem;
+      line-height: 2rem;
+      color: black;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+      background-color: #e6eaff; }
+  #notification-dropdown .notification:hover {
+    background-color: #dbe2ff; }
 
 @media only screen and (max-width: 700px) {
   #header {

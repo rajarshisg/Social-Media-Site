@@ -1,12 +1,10 @@
 class ChatEngine{
-    constructor(chatBoxId, userName, userEmail){
-        this.chatBox = $(`#${chatBoxId}`);
+    constructor(chatBoxId, userName, userEmail, roomId){
+        this.chatBox = document.getElementById(chatBoxId);
         this.userName = userName;
         this.userEmail = userEmail;
-        this.socket = io.connect('http://54.236.25.227:5000');
-        if(this.userEmail){
-            this.connectionHandler();
-        }
+        this.roomId = roomId;
+        this.socket = io.connect('http://localhost:5000');//io.connect('http://54.236.25.227:5000');
     }
 
     connectionHandler(){
@@ -16,32 +14,57 @@ class ChatEngine{
             self.socket.emit('join_room', {
                 user_name : self.userName,
                 user_email : self.userEmail,
-                chatroom : 'connecti_public'
+                chatroom : self.roomId,
             });
             self.socket.on('user_joined', function(data){
                 console.log('A user joined!', data);
                 let joinMessage = $('<div>');
-                joinMessage.append(`${data.user_name} joined the chat!`);
+                joinMessage.append(`${data.data.user_name} joined the chat!`);
+                
+                for(let message of data.messages) {
+                    let newMessage = $('<li>');
+                    let messageType = 'other-message';
+                    if(message.userName == self.userName){
+                        messageType = 'self-message'
+                    }
+                    newMessage.append($('<span>', {
+                        html : message.content
+                    }));
+                    newMessage.append($('<br/>'));
+                    newMessage.append($('<sub>', {
+                        html : data.user_name
+                    }));
+                    newMessage.addClass(messageType);
+                    $('.chat-message-list').append(newMessage);
+                }
                 joinMessage.addClass('global-message');
                 $('#chat-message-list').append(joinMessage);
             });
         });
 
-        $('#send-message').click(function(){
-            let msg = $('#chat-message-input').val();
-            console.log('Message - ',msg);
+        $('.chat-box-header').click(function() {
+            console.log('Leaving room', self.roomId);
+            self.socket.emit('leave-room', {
+                chatroom: self.roomId
+            });
+        })
+
+        $('.send-message').click(function(){
+            let msg = $('.chat-message-input').val();
+            console.log('Sending message to room', self.roomId);
             if(msg!=''){
-                $('#chat-message-input').val('');
+                $('.chat-message-input').val('');
                 self.socket.emit('send_message', {
                     message: msg,
                     user_name: self.userName,
                     user_email: self.userEmail,
-                    chatroom: 'connecti_public'
+                    chatroom: self.roomId
                 });
             }
         });
 
         self.socket.on('recieve_message', function(data){
+            console.log('Message recieved');
             let newMessage = $('<li>');
             let messageType = 'other-message';
             if(data.user_email == self.userEmail){
@@ -55,7 +78,7 @@ class ChatEngine{
                 html : data.user_name
             }));
             newMessage.addClass(messageType);
-            $('#chat-message-list').append(newMessage);
+            $('.chat-message-list').append(newMessage);
         });
     }
 }
