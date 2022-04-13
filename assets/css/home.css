@@ -47,13 +47,13 @@
         margin-left: 50vw;
         height: 2rem;
         width: 80px;
-        background-color: #42B72A;
+        background-color: #42b72a;
         color: white;
         border: none;
         border-radius: 0.3rem;
         font-size: 1.1rem;
         cursor: pointer;
-        transition: background-color .2s ease-in-out; }
+        transition: background-color 0.2s ease-in-out; }
       #main-section #feed-posts #post-form form button:hover {
         background-color: #42aa2d; }
     #main-section #feed-posts #posts-container li .post-card {
@@ -85,7 +85,7 @@
           font-size: 1.1rem;
           font-weight: bold;
           margin-bottom: 1.5rem;
-          margin-left: .5rem;
+          margin-left: 0.5rem;
           width: 89%;
           display: flex;
           flex-direction: column; }
@@ -94,7 +94,7 @@
             margin-top: 0.5rem; }
           #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a {
             text-decoration: none;
-            transition: text-decoration .2s ease-in-out; }
+            transition: text-decoration 0.2s ease-in-out; }
           #main-section #feed-posts #posts-container li .post-card .post-card-header .user-name a:hover {
             text-decoration: underline; }
         #main-section #feed-posts #posts-container li .post-card .post-card-header a {
@@ -105,7 +105,7 @@
         white-space: pre-line;
         text-align: left;
         margin-bottom: 1rem;
-        margin-left: .5rem; }
+        margin-left: 0.5rem; }
       #main-section #feed-posts #posts-container li .post-card .likes-count {
         color: #4b4b4b;
         font-size: 0.8rem;
@@ -126,7 +126,7 @@
           text-align: center;
           border-radius: 0.5rem;
           padding: 0.5rem;
-          transition: background-color .2s ease-in-out;
+          transition: background-color 0.2s ease-in-out;
           cursor: pointer; }
           #main-section #feed-posts #posts-container li .post-card .like-comment-bar .like a {
             color: black;
@@ -138,7 +138,7 @@
           text-align: center;
           border-radius: 0.5rem;
           padding: 0.5rem;
-          transition: background-color .2s ease-in-out;
+          transition: background-color 0.2s ease-in-out;
           cursor: pointer; }
         #main-section #feed-posts #posts-container li .post-card .like-comment-bar .comment:hover {
           background-color: #e2e2e2; }
@@ -163,13 +163,13 @@
         height: 2rem;
         width: 8vw;
         font-size: 0.8rem;
-        background-color: #42B72A;
+        background-color: #42b72a;
         color: white;
         font-weight: bold;
         border: none;
         border-radius: 0.3rem;
         cursor: pointer;
-        transition: background-color .2s ease-in-out; }
+        transition: background-color 0.2s ease-in-out; }
       #main-section #feed-posts #posts-container li .post-card .comments-container form button:hover {
         background-color: #42aa2d; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments .comments-header {
@@ -182,7 +182,7 @@
           border-radius: 50%;
           display: inline-block; }
       #main-section #feed-posts #posts-container li .post-card .comments-container .posted-comments ul li .comment-card {
-        background-color: #F0F2F5;
+        background-color: #f0f2f5;
         border-radius: 1rem;
         margin-left: 0vw;
         margin-top: -35px;
@@ -229,30 +229,30 @@
     #main-section #user-friends #user-friends-header {
       font-weight: bold;
       font-size: 1rem;
-      padding-left: .5rem;
-      padding-right: .5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
       height: 3rem;
       line-height: 3rem;
       width: 160%;
-      margin-left: -.9rem;
+      margin-left: -0.9rem;
       background-color: #ffa200;
       text-align: center;
       cursor: pointer;
-      transition: background-color .2s ease-in-out;
-      color: #1A2238; }
+      transition: background-color 0.2s ease-in-out;
+      color: #1a2238; }
     #main-section #user-friends #user-friends-header:hover {
       background-color: #f19900; }
     #main-section #user-friends .user-friends-list {
-      padding: .5rem;
-      border-bottom: .5px solid lightgray;
+      padding: 0.5rem;
+      border-bottom: 0.5px solid lightgray;
       height: 2rem;
       text-align: start;
       line-height: 2rem;
       cursor: pointer;
-      margin-left: -.5rem;
-      transition: background-color .2s ease-in-out;
+      margin-left: -0.5rem;
+      transition: background-color 0.2s ease-in-out;
       width: 160%;
-      margin-left: -.9rem; }
+      margin-left: -0.9rem; }
     #main-section #user-friends .user-friends-list:hover {
       background-color: lightgray; }
     #main-section #user-friends a {
@@ -267,28 +267,31 @@
     #main-section #all-users #all-users-header {
       font-weight: bold;
       font-size: 1rem;
-      padding-left: .5rem;
-      padding-right: .5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
       height: 3rem;
       line-height: 3rem;
       width: 100%;
-      margin-left: -.9rem;
+      margin-left: -0.9rem;
       background-color: #ffa200;
       text-align: center;
       cursor: pointer;
-      transition: background-color .2s ease-in-out;
-      color: #1A2238; }
+      transition: background-color 0.2s ease-in-out;
+      color: #1a2238; }
     #main-section #all-users #all-users-header:hover {
       background-color: #f19900; }
     #main-section #all-users .user-list {
-      padding: .5rem;
-      border-bottom: .5px solid lightgray;
+      padding: 0.5rem;
+      border-bottom: 0.5px solid lightgray;
       height: 2rem;
       text-align: start;
       line-height: 2rem;
+      max-width: 10vw;
+      overflow-y: hidden;
+      text-overflow: clip;
       cursor: pointer;
-      margin-left: -.5rem;
-      transition: background-color .2s ease-in-out; }
+      margin-left: -0.5rem;
+      transition: background-color 0.2s ease-in-out; }
     #main-section #all-users .user-list:hover {
       background-color: lightgray; }
     #main-section #all-users a {
