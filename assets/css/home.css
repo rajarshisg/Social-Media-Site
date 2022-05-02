@@ -225,7 +225,11 @@
   #main-section #user-friends {
     border-left: 1px solid lightgray;
     padding-left: 1rem;
-    font-family: "Roboto", sans-serif; }
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    right: 0;
+    margin-right: 3rem;
+    z-index: -1; }
     #main-section #user-friends #user-friends-header {
       font-weight: bold;
       font-size: 1rem;
@@ -263,7 +267,10 @@
   #main-section #all-users {
     border-right: 1px solid lightgray;
     font-family: "Roboto", sans-serif;
-    margin-left: -3rem; }
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    margin-left: 0.5rem; }
     #main-section #all-users #all-users-header {
       font-weight: bold;
       font-size: 1rem;

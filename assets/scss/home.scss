@@ -295,6 +295,10 @@ $roboto: "Roboto", sans-serif;
     border-left: 1px solid lightgray;
     padding-left: 1rem;
     font-family: $roboto;
+    position: absolute;
+    right: 0;
+    margin-right: 3rem;
+    z-index: -1;
     #user-friends-header {
       font-weight: bold;
       font-size: 1rem;
@@ -339,7 +343,10 @@ $roboto: "Roboto", sans-serif;
   #all-users {
     border-right: 1px solid lightgray;
     font-family: $roboto;
-    margin-left: -3rem;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    margin-left: 0.5rem;
     #all-users-header {
       font-weight: bold;
       font-size: 1rem;

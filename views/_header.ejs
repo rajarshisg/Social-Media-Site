@@ -9,46 +9,58 @@
     <div id="links">
         <% if(locals.user) { %>
             <div id="notification-dropdown">
-                <div id="notification-dropdown-header"><div>Notifications</div><div><i class="fas fa-times"></i></div></div>
+                <div id="notification-dropdown-header">
+                    <div>Notifications</div>
+                    <div><i class="fas fa-times"></i></div>
+                </div>
                 <div class="notifications">
-                    <% for(user of locals.user.recievedRequests) { %>
-                        <div class="notification"><a href="/users/profile/<%= user %>" style="color: black; text-decoration: underline;"></style>Someone</a> sent you a friend request!</div>
-                    <% } %>
+                    <% if (locals.user.recievedRequests.length> 0) { %>
+                        <% for(user of locals.user.recievedRequests) { %>
+                            <div class="notification"><a href="/users/profile/<%= user %>"
+                                    style="color: black; text-decoration: underline;"></style>Someone</a> sent you a
+                                friend request!</div>
+                            <% }} else { %>
+                                <p>No new notifications!</p>
+                                <% } %>
                 </div>
             </div>
             <!--If user is signed in-->
             <span id="notification-bell"><i class="fas fa-bell"></i></span>&emsp;&emsp;
-            <span><a href="/users/profile/<%= user.id %>"><%= user.name %></a></span>&emsp;
+            <span><a href="/users/profile/<%= user.id %>">
+                    <%= user.name %>
+                </a></span>&emsp;
             <span><a href="/users/sign-out">Sign Out</a></span>
-        <% }else{ %>
-            <!--When viewing anonymously-->
-            <span><a href="/users/sign-in">Sign In</a></span>
-            <span><a href="/users/sign-up">Sign Up</a></span>
-        <% } %>
+            <% }else{ %>
+                <!--When viewing anonymously-->
+                <span><a href="/users/sign-in">Sign In</a></span>
+                <span><a href="/users/sign-up">Sign Up</a></span>
+                <% } %>
     </div>
     <!--Dropdown for small screens-->
     <div class="dropdown">
         <span><i class="fas fa-bars"></i></span>
         <div class="dropdown-content">
             <% if(locals.user) { %>
-                <div><a href="/users/profile/<%= user.id %>"><%= user.name %></a></div>&nbsp;&nbsp;
+                <div><a href="/users/profile/<%= user.id %>">
+                        <%= user.name %>
+                    </a></div>&nbsp;&nbsp;
                 <div><a href="/users/sign-out">Sign Out</a></div>
-            <% }else{ %>
-                <div><a href="/users/sign-in">Sign In</a></div>&nbsp;&nbsp;
-                <div><a href="/users/sign-up">Sign Up</a></div>
-            <% } %>
+                <% }else{ %>
+                    <div><a href="/users/sign-in">Sign In</a></div>&nbsp;&nbsp;
+                    <div><a href="/users/sign-up">Sign Up</a></div>
+                    <% } %>
         </div>
     </div>
 </div>
 <script>
-    $('.dropdown').click(function(e){
+    $('.dropdown').click(function (e) {
         $('.dropdown-content').css('display', 'block');
     });
-    $('#notification-bell').click(function() {
+    $('#notification-bell').click(function () {
         $('#notification-dropdown').fadeIn();
     });
-    $('body').click(function(e) {
-        if(e.target.classList[1] != 'fa-bell') {
+    $('body').click(function (e) {
+        if (e.target.classList[1] != 'fa-bell') {
             $('#notification-dropdown').fadeOut();
         }
     })

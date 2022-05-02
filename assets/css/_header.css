@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: #1A2238;
+  background-color: #1a2238;
   color: white;
   padding: 0.5rem;
   padding-left: 1rem;
@@ -83,7 +83,7 @@
     justify-content: space-between;
     color: black;
     padding: 1rem;
-    background-color: #1A2238;
+    background-color: #1a2238;
     color: white;
     cursor: pointer; }
   #notification-dropdown .notifications {
@@ -92,13 +92,13 @@
     justify-content: start;
     overflow-y: auto; }
     #notification-dropdown .notifications .notification {
-      border-bottom: .5px solid #9DAAF2;
+      border-bottom: 0.5px solid #9daaf2;
       height: 2rem;
       line-height: 2rem;
       color: black;
       padding: 1rem;
       cursor: pointer;
-      transition: background-color .2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
       background-color: #e6eaff; }
   #notification-dropdown .notification:hover {
     background-color: #dbe2ff; }

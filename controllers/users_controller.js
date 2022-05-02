@@ -8,26 +8,36 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
+module.exports.allProfiles = async function (req, res) {
+    try {
+        let users = await User.find({});
+        return res.status(200).json({ users });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error: 'Some error occured' });
+    }
+}
+
 module.exports.profile = async function (req, res) {
-    try{
+    try {
         let user = await User.findById(req.params.id).populate({
-            path : 'posts',
-            populate : {
-                path : 'user comments',
-                populate : {
-                    path : 'user'
+            path: 'posts',
+            populate: {
+                path: 'user comments',
+                populate: {
+                    path: 'user'
                 }
             },
-            options : {
-                sort : {'createdAt' : -1}
+            options: {
+                sort: { 'createdAt': -1 }
             }
         });
 
         let currUser = await User.findById(req.user._id);
 
-        let isFriend = (user.friends.indexOf(currUser._id) == -1)?false:true;
-        let sentRequest = (user.sentRequests.indexOf(currUser._id) == -1)?false:true;
-        let recievedRequest = (user.recievedRequests.indexOf(currUser._id) == -1)?false:true;
+        let isFriend = (user.friends.indexOf(currUser._id) == -1) ? false : true;
+        let sentRequest = (user.sentRequests.indexOf(currUser._id) == -1) ? false : true;
+        let recievedRequest = (user.recievedRequests.indexOf(currUser._id) == -1) ? false : true;
 
         return res.render('user_profile', {
             title: 'Connecti | User Profile',
@@ -37,12 +47,12 @@ module.exports.profile = async function (req, res) {
             awaitingResponse: recievedRequest,
             isFollowed: true
         });
-    
-    }catch(err){
+
+    } catch (err) {
         console.log('Error occured in profile controller!');
         return;
     }
-    
+
 }
 
 module.exports.update = async function (req, res) {
@@ -208,9 +218,9 @@ module.exports.resetPassword = function (req, res) {
     });
 }
 
-module.exports.sendFriendRequest = async function(req, res) {
+module.exports.sendFriendRequest = async function (req, res) {
     try {
-        
+
         let toUser = await User.findById(req.params.id);
         let fromUser = await User.findById(req.user._id);
 
@@ -218,26 +228,26 @@ module.exports.sendFriendRequest = async function(req, res) {
         let indexTwo = fromUser.sentRequests.indexOf(toUser._id);
         let indexThree = toUser.friends.indexOf(fromUser._id);
 
-        if((indexOne != -1 && indexTwo != -1) || indexThree != -1) {
+        if ((indexOne != -1 && indexTwo != -1) || indexThree != -1) {
             return res.redirect('back');
         }
 
 
         toUser.recievedRequests.push(fromUser);
         fromUser.sentRequests.push(toUser);
-        
+
         toUser.save();
         fromUser.save();
 
         console.log(toUser);
         console.log(fromUser);
         return res.redirect('back');
-    }catch {
+    } catch {
         console.log('Error in sendFriendRequest controller!');
     }
 }
 
-module.exports.acceptFriendRequest = async function(req, res) {
+module.exports.acceptFriendRequest = async function (req, res) {
     try {
         let acceptingUser = await User.findById(req.user._id);
         let sendingUser = await User.findById(req.params.id);
@@ -246,7 +256,7 @@ module.exports.acceptFriendRequest = async function(req, res) {
         let indexTwo = sendingUser.sentRequests.indexOf(acceptingUser._id);
         let indexThree = sendingUser.friends.indexOf(acceptingUser._id);
 
-        if(indexOne == -1 || indexTwo == -1 || indexThree != -1) {
+        if (indexOne == -1 || indexTwo == -1 || indexThree != -1) {
             return res.redirect('back');
         }
 
@@ -272,12 +282,12 @@ module.exports.acceptFriendRequest = async function(req, res) {
         sendingUser.save();
 
         return res.redirect('back');
-    }catch {
+    } catch {
         console.log('Error in acceptFriendRequest controller!');
     }
 }
 
-module.exports.rejectFriendRequest = async function(req, res) {
+module.exports.rejectFriendRequest = async function (req, res) {
     try {
         let acceptingUser = await User.findById(req.user._id);
         let sendingUser = await User.findById(req.params.id);
@@ -286,7 +296,7 @@ module.exports.rejectFriendRequest = async function(req, res) {
         let indexTwo = sendingUser.sentRequests.indexOf(acceptingUser._id);
         let indexThree = sendingUser.friends.indexOf(acceptingUser._id);
 
-        if(indexOne == -1 || indexTwo == -1 || indexThree != -1) {
+        if (indexOne == -1 || indexTwo == -1 || indexThree != -1) {
             return res.redirect('back');
         }
 
@@ -297,7 +307,7 @@ module.exports.rejectFriendRequest = async function(req, res) {
         sendingUser.save();
 
         return res.redirect('back');
-    }catch {
+    } catch {
         console.log('Error in acceptFriendRequest controller!');
     }
 }
@@ -305,14 +315,14 @@ module.exports.rejectFriendRequest = async function(req, res) {
 
 
 
-module.exports.unfriend = async function(req, res) {
+module.exports.unfriend = async function (req, res) {
     let userOne = await User.findById(req.user._id);
     let userTwo = await User.findById(req.params.id);
 
     let indexOne = userOne.friends.indexOf(userTwo._id);
     let indexTwo = userTwo.friends.indexOf(userOne._id);
 
-    if(indexOne == -1 || indexTwo == -1) {
+    if (indexOne == -1 || indexTwo == -1) {
         return res.redirect('back');
     }
 
@@ -320,20 +330,20 @@ module.exports.unfriend = async function(req, res) {
     userTwo.friends.splice(indexTwo, 1);
     let newArrayOne = [];
     let newArrayTwo = [];
-    for(let room of userOne.chatRooms) {
-        if(room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
+    for (let room of userOne.chatRooms) {
+        if (room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
             newArrayOne.push(room);
         }
     }
-    for(let room of userTwo.chatRooms) {
-        if(room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
+    for (let room of userTwo.chatRooms) {
+        if (room.roomId != userOne.email + userTwo.email && room.roomId != userTwo.email + userOne.email) {
             newArrayTwo.push(room);
         }
     }
     userOne.chatRooms = newArrayOne;
     userTwo.chatRooms = newArrayTwo;
     let message = await Message.findOneAndDelete({ roomId: userOne.email + userTwo.email });
-    if(!message) {
+    if (!message) {
         message = await Message.findOneAndDelete({ roomId: userTwo.email + userOne.email });
     }
     userOne.save();

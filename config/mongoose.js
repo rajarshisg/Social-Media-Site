@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'); //requiring mongoose
-mongoose.connect('mongodb://localhost/codeial_development'); //connecting to the database
+mongoose.connect(`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@connecti.lkuxj.mongodb.net/${process.env.DB_NAME}`); //connecting to the database
 
 const db = mongoose.connection; //acquiring the connection
 
@@ -7,7 +7,7 @@ const db = mongoose.connection; //acquiring the connection
 db.on('error', console.error.bind(console, 'Error occured in connecting to MongoDB!'));
 
 //once mongodb is connected
-db.once('open', function(){
+db.once('open', function () {
     console.log('Succesfully connected to MongoDB!');
 });
 
